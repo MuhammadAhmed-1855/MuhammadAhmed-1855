@@ -55,8 +55,24 @@ Full-Stack Engineer with 2.5+ years of experience engineering high-performance, 
 
 ---
 
-## 🏢 Corporate Experience & Impact
+##  Corporate Experience & Impact
 *Sorted by most recently updated. Click to expand contribution heatmaps.*
+
+### 🏢 Tangent Technologies
+
+<details>
+  <summary><strong>📊 View 1 Contribution Heatmaps (2026-2026)</strong></summary>
+  <br>
+
+  **Tangent Technologies (2026)**
+
+  <img src="corporate/Tangent_Technologies/Tangent_Technologies_Aggregated_2026.png" alt="Tangent Technologies (2026)" width="100%" />
+
+</details>
+
+👉 **[View Technical Deep-Dive, Architecture & Full Commit History](corporate/Tangent_Technologies/README.md)**
+
+---
 
 ### 🏢 Beyond Solutions
 
@@ -78,23 +94,7 @@ Full-Stack Engineer with 2.5+ years of experience engineering high-performance, 
 
 </details>
 
-👉 **[View Technical Deep-Dive, Architecture & Full Commit History](corporate\Beyond_Solutions/README.md)**
-
----
-
-### 🏢 Tangent Technologies
-
-<details>
-  <summary><strong>📊 View 1 Contribution Heatmaps (2026-2026)</strong></summary>
-  <br>
-
-  **Tangent Technologies (2026)**
-
-  <img src="corporate/Tangent_Technologies/Tangent_Technologies_Aggregated_2026.png" alt="Tangent Technologies (2026)" width="100%" />
-
-</details>
-
-👉 **[View Technical Deep-Dive, Architecture & Full Commit History](corporate\Tangent_Technologies/README.md)**
+👉 **[View Technical Deep-Dive, Architecture & Full Commit History](corporate/Beyond_Solutions/README.md)**
 
 ---
 

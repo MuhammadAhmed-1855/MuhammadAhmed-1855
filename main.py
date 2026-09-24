@@ -110,6 +110,9 @@ def get_image_caption(img_path: Path, is_personal: bool = False) -> str:
 # ==========================================
 # 5. MARKDOWN ASSEMBLER
 # ==========================================
+# ==========================================
+# 5. MARKDOWN ASSEMBLER (FIXED WINDOWS PATHS)
+# ==========================================
 def generate_readme() -> str:
     
     # --- CORPORATE SECTION ---
@@ -119,7 +122,9 @@ def generate_readme() -> str:
     corporate_section = ""
     for company_dir in company_dirs:
         company_name = company_dir.name.replace("_", " ").title()
-        deep_dive_link = f"{company_dir}/README.md" if (company_dir / "README.md").exists() else "#"
+        
+        # FIX: Use .as_posix() to force forward slashes instead of Windows backslashes
+        deep_dive_link = f"{company_dir.as_posix()}/README.md" if (company_dir / "README.md").exists() else "#"
         root_images = sorted(list(company_dir.glob("*.png")))
         
         corporate_section += f"### 🏢 {company_name}\n\n"
@@ -136,6 +141,7 @@ def generate_readme() -> str:
             
             for img in root_images:
                 caption = get_image_caption(img, is_personal=False)
+                # FIX: Ensure image src also uses .as_posix()
                 corporate_section += f'  **{caption}**\n\n'
                 corporate_section += f'  <img src="{img.as_posix()}" alt="{caption}" width="100%" />\n\n'
                 
@@ -147,8 +153,8 @@ def generate_readme() -> str:
     if not corporate_section:
         corporate_section = "*Corporate deep-dives are being compiled.*\n\n---\n\n"
 
-    # --- PERSONAL SECTION (CONSISTENT WITH COMPANY) ---
-    personal_heatmaps = sorted(list(GENERATED_DIR.glob("personal_heatmap_*.png")), reverse=True) # Newest first
+    # --- PERSONAL SECTION ---
+    personal_heatmaps = sorted(list(GENERATED_DIR.glob("personal_heatmap_*.png")), reverse=True)
     
     personal_section = ""
     if len(personal_heatmaps) > 0:
@@ -229,7 +235,7 @@ Full-Stack Engineer with 2.5+ years of experience engineering high-performance, 
 
 ---
 
-## 🏢 Corporate Experience & Impact
+##  Corporate Experience & Impact
 *Sorted by most recently updated. Click to expand contribution heatmaps.*
 
 {corporate_section}
@@ -267,7 +273,7 @@ Full-Stack Engineer with 2.5+ years of experience engineering high-performance, 
 *🤖 Portfolio compiled on **{datetime.now().strftime('%Y-%m-%d')}**. Personal stats fetched live via GitHub GraphQL API.*
 """
     return md
-
+  
 # ==========================================
 # 6. MAIN EXECUTION
 # ==========================================
